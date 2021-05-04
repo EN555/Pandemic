@@ -9,16 +9,19 @@ using namespace std;
 Board::Board() {
 //first insert all the connections then insert the colors
     std::ifstream file{"cities_map.txt"};
+    if(!file.is_open()){    //check if succeed to open the files
+        throw runtime_error("Didn't succeed to open the file!");
+    }
     std::string city, color, connection;
 
     while(!file.eof()){
         file >> city >> color;
         //insert the color
-        city_color.insert({cities[city],color});
+        city_color.insert({cities[city],color});    //<City,string::Color>
         //insert the connection
         std::set<City> conc={};
         desease_intense.insert({cities[city],0});
-        getline(file, connection);
+        getline(file, connection);  //from after the color
         stringstream ss;
         ss <<connection;
         string partial;
@@ -27,6 +30,7 @@ Board::Board() {
         }
     }
 }
+
 ostream& pandemic::operator<<(ostream& os, Board &board) {    //need to add research stations and is found cure for the deseases
     //intensity of the pandemic in every city
     cout<< "The intensity of the pandemic in every city"<<endl;
@@ -77,7 +81,12 @@ int& Board::operator[](City city) {
 }
 
 bool Board::is_clean(){
-    return desease_intense.empty();  //check if the is empty
+   for(auto it=desease_intense.begin(); it != desease_intense.end(); ++it) {
+       if (it->second != 0) {
+           return false;
+       }
+   }
+       return true;
 }
 
 void Board::remove_cures(){
