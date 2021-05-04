@@ -49,26 +49,26 @@ bool can_discover_cure(Board& board, Player& player, Color color) {
 void check_cure_discovery(Board& board, Player& player) {
 	cout << "Checking a " << player.role() << ": " << endl;
 
-	take_four_red_cards(player);
-	cout << "  Four red cards, no research station: " << can_discover_cure(board, player, Color::Red) << endl;
-
-	take_four_red_cards(player);
-	player.drive(City::Atlanta);
-	cout << "  Four red cards, in a research station: " << can_discover_cure(board, player, Color::Red) << endl;
-
-	take_four_red_cards(player);
-	player.take_card(City::Cairo);
-	cout << "  Four red cards and one black card, in a research station: " << can_discover_cure(board, player, Color::Red) << endl;
-
-	take_four_red_cards(player);
-	player.take_card(City::Beijing);
-	player.drive(City::Washington);
-	cout << "  Five red cards, no research station: " << can_discover_cure(board, player, Color::Red) << endl;
-
-	take_four_red_cards(player);
-	player.take_card(City::Beijing);
-	player.drive(City::Atlanta);
-	cout << "  Five red cards, in a research station: " << can_discover_cure(board, player, Color::Red) << endl;
+//	take_four_red_cards(player);
+//	cout << "  Four red cards, no research station: " << can_discover_cure(board, player, Color::Red) << endl;
+//
+//	take_four_red_cards(player);
+//	player.drive(City::Atlanta);
+//	cout << "  Four red cards, in a research station: " << can_discover_cure(board, player, Color::Red) << endl;
+//
+//	take_four_red_cards(player);
+//	player.take_card(City::Cairo);
+//	cout << "  Four red cards and one black card, in a research station: " << can_discover_cure(board, player, Color::Red) << endl;
+//
+//	take_four_red_cards(player);
+//	player.take_card(City::Beijing);
+//	player.drive(City::Washington);
+//	cout << "  Five red cards, no research station: " << can_discover_cure(board, player, Color::Red) << endl;
+//
+//	take_four_red_cards(player);
+//	player.take_card(City::Beijing);
+//	player.drive(City::Atlanta);
+//	cout << "  Five red cards, in a research station: " << can_discover_cure(board, player, Color::Red) << endl;
 }
 
 
